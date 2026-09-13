@@ -1,5 +1,6 @@
 import { animate, motion, useMotionTemplate, useMotionValue, useReducedMotion } from 'motion/react'
 import {
+  useCallback,
   useEffect,
   useId,
   useRef,
@@ -521,18 +522,53 @@ export function ServiceSections() {
   const reduce = useReducedMotion()
   const panelId = useId()
   const tabs = useRef<Partial<Record<ServiceId, HTMLButtonElement | null>>>({})
+  const railRef = useRef<HTMLDivElement>(null)
   const [activeId, setActiveId] = useState<ServiceId>(() => readHashId())
+  const [rail, setRail] = useState({ overflow: false, start: true, end: false })
   const active = homeSolutions.find((service) => service.id === activeId) ?? homeSolutions[0]
   const cse = t.services.home[active.id as (typeof HOME_SOLUTION_IDS)[number]]
   const live = reduce !== true
+
+  const measureRail = useCallback(() => {
+    const el = railRef.current
+    if (!el) return
+    const max = el.scrollWidth - el.clientWidth
+    setRail({
+      overflow: max > 8,
+      start: el.scrollLeft <= 6,
+      end: el.scrollLeft >= max - 6,
+    })
+  }, [])
 
   useEffect(() => {
     setActiveId(readHashId())
   }, [locale])
 
+  useEffect(() => {
+    const el = railRef.current
+    if (!el) return
+    measureRail()
+    el.addEventListener('scroll', measureRail, { passive: true })
+    window.addEventListener('resize', measureRail)
+    return () => {
+      el.removeEventListener('scroll', measureRail)
+      window.removeEventListener('resize', measureRail)
+    }
+  }, [locale, homeSolutions.length, measureRail])
+
   const open = (id: ServiceId, moveFocus = false) => {
     setActiveId(id)
-    if (moveFocus) tabs.current[id]?.focus()
+    const tab = tabs.current[id]
+    if (moveFocus) tab?.focus()
+    const railEl = railRef.current
+    if (tab && railEl) {
+      const railBox = railEl.getBoundingClientRect()
+      const tabBox = tab.getBoundingClientRect()
+      railEl.scrollBy({
+        left: tabBox.left - railBox.left - (railBox.width - tabBox.width) / 2,
+        behavior: reduce ? 'auto' : 'smooth',
+      })
+    }
   }
 
   const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
@@ -557,21 +593,42 @@ export function ServiceSections() {
           </h2>
         </header>
 
-        <div className="stage-index" role="tablist" aria-label={t.services.tablistLabel}>
-          {homeSolutions.map((service, index) => (
-            <StageTab
-              key={service.id}
-              service={service}
-              selected={service.id === active.id}
-              live={live}
-              panelId={panelId}
-              onSelect={() => setActiveId(service.id)}
-              onKeyDown={(event) => onKeyDown(event, index)}
-              setTab={(node) => {
-                tabs.current[service.id] = node
-              }}
-            />
-          ))}
+        <div
+          className="stage-rail"
+          data-overflow={rail.overflow ? 'true' : 'false'}
+          data-start={rail.start ? 'true' : 'false'}
+          data-end={rail.end ? 'true' : 'false'}
+        >
+          <div ref={railRef} className="stage-index" role="tablist" aria-label={t.services.tablistLabel}>
+            {homeSolutions.map((service, index) => (
+              <StageTab
+                key={service.id}
+                service={service}
+                selected={service.id === active.id}
+                live={live}
+                panelId={panelId}
+                onSelect={() => open(service.id)}
+                onKeyDown={(event) => onKeyDown(event, index)}
+                setTab={(node) => {
+                  tabs.current[service.id] = node
+                }}
+              />
+            ))}
+          </div>
+
+          {rail.overflow ? (
+            <div className="stage-guide" role="presentation">
+              {homeSolutions.map((service) => (
+                <button
+                  key={service.id}
+                  type="button"
+                  className={`stage-guide-dot${service.id === active.id ? ' is-on' : ''}`}
+                  aria-label={service.title}
+                  onClick={() => open(service.id)}
+                />
+              ))}
+            </div>
+          ) : null}
         </div>
 
         <div className="stage-panel" id={panelId} role="tabpanel" aria-labelledby={sectionId(active.id)}>

@@ -83,6 +83,11 @@ export function ContactSection({ variant = 'band' }: ContactSectionProps) {
   return (
     <section className={`contact${variant === 'page' ? ' contact-page' : ''}`} id="contact">
       <div className="wrap contact-inner">
+        <div className="contact-kicker-row">
+          <span className="contact-kicker-line" aria-hidden="true" />
+          <p className="contact-kicker">{t.contact.kicker}</p>
+          <span className="contact-kicker-line" aria-hidden="true" />
+        </div>
         <motion.div
           className="contact-copy"
           {...(reduce
@@ -90,11 +95,10 @@ export function ContactSection({ variant = 'band' }: ContactSectionProps) {
             : {
                 initial: { opacity: 0, y: 18 },
                 whileInView: { opacity: 1, y: 0 },
-                viewport: { once: true, margin: '-10% 0px' },
-                transition: { duration: 0.7, ease: EASE },
+                viewport: { once: true, amount: 0.08, margin: '0px 0px 18% 0px' },
+                transition: { duration: 0.45, ease: EASE },
               })}
         >
-          <p className="contact-kicker">{t.contact.kicker}</p>
           {variant === 'page' ? <h1>{t.contact.headline}</h1> : <h2>{t.contact.headline}</h2>}
           <p>{t.contact.intro}</p>
 

@@ -222,8 +222,29 @@
 }
 
 @media (max-width: 767px) {
+  .about-copy {
+    gap: 28px;
+  }
+
   .about h2 {
-    font-size: clamp(26px, 3vw, 40px);
+    width: 100%;
+    max-width: none;
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    text-align: center;
+  }
+
+  .about h2 span {
+    display: inline-block;
+  }
+
+  .about h2 > span {
+    display: block;
+  }
+
+  .about h2 > span:first-child {
+    white-space: nowrap;
   }
 }
 
