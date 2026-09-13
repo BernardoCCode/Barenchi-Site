@@ -49,7 +49,7 @@ export function scrollToHash(hash: string, options?: { instant?: boolean }) {
     duration,
     ease: 'power2.inOut',
     overwrite: true,
-    scrollTo: { y, autoKill: true },
+    scrollTo: { y, autoKill: !compact },
     onComplete() {
       ScrollTrigger.refresh()
     },
