@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "barenchi-site",
+  "compatibility_date": "2026-09-13",
+  // Static Vite SPA. Do not add a Worker `main` or a public/_redirects
+  // fallback — Workers Assets treats /* → /index.html as a loop (100324).
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "single-page-application"
+  }
+}
