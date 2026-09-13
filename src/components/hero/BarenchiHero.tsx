@@ -70,7 +70,7 @@ export function BarenchiHero() {
         <video
           ref={videoRef}
           className="bhero-film"
-          src="/hero.mp4?v=native"
+          src={reduced ? undefined : '/hero.mp4?v=native'}
           poster="/hero-poster.jpg?v=clean"
           autoPlay={!reduced}
           muted

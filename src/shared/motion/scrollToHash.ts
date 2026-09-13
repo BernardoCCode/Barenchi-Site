@@ -31,8 +31,16 @@ export function scrollToHash(hash: string, options?: { instant?: boolean }) {
   gsap.killTweensOf(window)
 
   if (options?.instant || prefersReducedMotion()) {
-    window.scrollTo(0, y)
+    window.scrollTo({ top: y, behavior: 'instant' })
     ScrollTrigger.refresh()
+    return
+  }
+
+  // Let the browser handle touch scrolling and its changing toolbar viewport.
+  // GSAP autoKill can mistake those position changes for a user interruption.
+  const compact = window.matchMedia('(max-width: 899px)').matches
+  if (compact) {
+    window.scrollTo({ top: y, behavior: 'smooth' })
     return
   }
 
@@ -40,10 +48,7 @@ export function scrollToHash(hash: string, options?: { instant?: boolean }) {
   if (distance < 4) return
 
   const viewports = distance / Math.max(window.innerHeight, 1)
-  const compact = window.matchMedia('(max-width: 899px)').matches
-  const duration = compact
-    ? gsap.utils.clamp(0.55, 1.45, 0.48 * viewports)
-    : gsap.utils.clamp(0.95, 2.8, 0.78 * viewports)
+  const duration = gsap.utils.clamp(0.95, 2.8, 0.78 * viewports)
 
   gsap.to(window, {
     duration,

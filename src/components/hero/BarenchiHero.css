@@ -161,9 +161,8 @@
 
 @media (max-width: 899px) {
   .bhero {
-    height: 100dvh;
+    height: 100svh;
     min-height: 100svh;
-    max-height: 100dvh;
   }
 
   .bhero-frame::after {
@@ -177,12 +176,14 @@
 
   .bhero-film {
     position: absolute;
-    top: 18%;
-    left: -28%;
+    top: 32%;
+    left: 50%;
     width: 168%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 40% 16%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    transform: translateX(-50%);
+    object-fit: contain;
+    object-position: center;
     -webkit-mask-image: linear-gradient(to bottom, transparent, var(--ink) 56px);
     mask-image: linear-gradient(to bottom, transparent, var(--ink) 56px);
   }
@@ -236,21 +237,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bhero-film {
-    display: none;
-  }
-
-  .bhero-frame {
-    background: url("/hero-poster.jpg?v=clean") 48% 38% / cover no-repeat;
-  }
-
-  @media (max-width: 899px) {
-    .bhero-frame {
-      background-size: 168% 100%;
-      background-position: 40% 16%;
-    }
-  }
-
   .talk-orb {
     transition: none;
   }
