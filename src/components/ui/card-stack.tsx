@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 export type CardStackItem = {
   id: string | number
@@ -54,10 +54,20 @@ export function CardStack<T extends CardStackItem>({
   const len = items.length
   const [active, setActive] = useState(() => wrapIndex(initialIndex, len))
   const [hovering, setHovering] = useState(false)
+  const [dragEnabled, setDragEnabled] = useState(true)
+  const selectionLockedUntil = useRef(0)
+  const unlockTimer = useRef<number | null>(null)
 
   useEffect(() => {
     setActive((current) => wrapIndex(current, len))
   }, [len])
+
+  useEffect(
+    () => () => {
+      if (unlockTimer.current !== null) window.clearTimeout(unlockTimer.current)
+    },
+    [],
+  )
 
   const maxOffset = 1
   const cardSpacing = Math.max(16, Math.round(cardWidth * (compact ? 0.42 : 0.64)))
@@ -73,6 +83,24 @@ export function CardStack<T extends CardStackItem>({
     if (!len) return
     setActive((current) => wrapIndex(current + 1, len))
   }, [len])
+
+  const select = useCallback(
+    (index: number) => {
+      const now = Date.now()
+      if (now < selectionLockedUntil.current) return
+
+      // Lock synchronously: a second click can arrive before React commits the first update.
+      selectionLockedUntil.current = now + 650
+      setDragEnabled(false)
+      if (unlockTimer.current !== null) window.clearTimeout(unlockTimer.current)
+      unlockTimer.current = window.setTimeout(() => {
+        setDragEnabled(true)
+        unlockTimer.current = null
+      }, 650)
+      setActive(wrapIndex(index, len))
+    },
+    [len],
+  )
 
   useEffect(() => {
     if (!autoAdvance || reduce || !len) return
@@ -111,12 +139,10 @@ export function CardStack<T extends CardStackItem>({
               const rotateZ = offset * stepDeg
               const x = offset * cardSpacing
               const y = compact ? 0 : Math.abs(offset) * 34
-              const z = compact ? 0 : isActive ? 120 : -Math.abs(offset) * 180
               const scale = isActive ? 1 : compact ? 0.9 : 0.86
               const lift = compact ? 0 : isActive ? -12 : 0
-              const rotateX = compact ? 0 : isActive ? 0 : 5
 
-              const dragProps = isActive && !reduce
+              const dragProps = isActive && !reduce && dragEnabled
                 ? {
                     drag: 'x' as const,
                     dragConstraints: { left: 0, right: 0 },
@@ -144,16 +170,17 @@ export function CardStack<T extends CardStackItem>({
                     zIndex: isActive ? 300 : 80 - Math.abs(offset),
                     touchAction: 'pan-y',
                   }}
-                  initial={reduce ? false : { opacity: 0, y: y + 32, x, rotateZ, rotateX, scale }}
-                  animate={{ opacity: 1, x, y: y + lift, rotateZ, rotateX, scale }}
+                  initial={
+                    reduce ? false : { opacity: 0, y: y + 32, x, rotateZ, scale }
+                  }
+                  animate={{ opacity: 1, x, y: y + lift, rotateZ, scale }}
                   transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-                  onClick={() => setActive(index)}
+                  onClick={() => {
+                    if (!isActive) select(index)
+                  }}
                   {...dragProps}
                 >
-                  <div
-                    className="card-stack-card-inner"
-                    style={compact ? undefined : { transform: `translateZ(${z}px)` }}
-                  >
+                  <div className="card-stack-card-inner">
                     {renderCard ? renderCard(item, { active: isActive }) : null}
                   </div>
                 </motion.div>
@@ -171,7 +198,9 @@ export function CardStack<T extends CardStackItem>({
               type="button"
               className={cn('card-stack-dot', index === active && 'card-stack-dot--active')}
               aria-label={`Go to ${item.title}`}
-              onClick={() => setActive(index)}
+              onClick={() => {
+                if (index !== active) select(index)
+              }}
             />
           ))}
         </div>

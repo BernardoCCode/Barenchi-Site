@@ -9,7 +9,7 @@ export function HeroCopy() {
       : [`${t.hero.colLeft[0]} ${t.hero.colLeft[1]}`, t.hero.colRight[0], t.hero.colRight[1]]
 
   return (
-    <div className="bhero-copy">
+    <>
       <div className="bhero-manifesto wrap">
         <h1 className="visually-hidden">{t.hero.hidden}</h1>
         <p className="visually-hidden">{t.meta.description}</p>
@@ -41,6 +41,6 @@ export function HeroCopy() {
       <div className="bhero-rail wrap" data-anim="rail">
         <TalkLink />
       </div>
-    </div>
+    </>
   )
 }

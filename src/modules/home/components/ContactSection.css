@@ -15,16 +15,31 @@
   display: grid;
   gap: 36px;
   padding: 28px 0;
-  border-top: 1px solid var(--hairline-mid);
   border-bottom: 1px solid var(--hairline-mid);
 }
 
+.contact-kicker-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin: 0 0 4px;
+}
+
+.contact-kicker-line {
+  flex: 1;
+  height: 1px;
+  background: var(--hairline-mid);
+}
+
 .contact-kicker {
-  margin: 0 0 10px;
+  margin: 0;
   color: var(--brand);
   font-size: 11px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .contact-copy h1,
@@ -424,10 +439,27 @@ textarea.floating-field__control {
   }
 
   .contact-inner {
+    grid-template-areas:
+      "kicker kicker"
+      "copy form";
     grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
     align-items: start;
     gap: 56px;
     padding: 40px 0;
+  }
+
+  .contact-kicker-row {
+    grid-area: kicker;
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+  }
+
+  .contact-copy {
+    grid-area: copy;
+  }
+
+  .contact-form-frame {
+    grid-area: form;
   }
 
   .animated-form-frame__panel {

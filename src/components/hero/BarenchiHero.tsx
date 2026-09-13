@@ -70,7 +70,7 @@ export function BarenchiHero() {
         <video
           ref={videoRef}
           className="bhero-film"
-          src={reduced ? undefined : '/hero.mp4?v=native'}
+          src="/hero.mp4?v=native"
           poster="/hero-poster.jpg?v=clean"
           autoPlay={!reduced}
           muted
@@ -80,8 +80,8 @@ export function BarenchiHero() {
           title={t.hero.film}
           aria-label={t.hero.film}
         />
-        <HeroCopy />
       </div>
+      <HeroCopy />
 
       <p className="visually-hidden">{capabilities}</p>
     </section>

@@ -159,7 +159,7 @@ export const ptBR: Messages = {
       {
         title: 'O sistema é seu.',
         description:
-          'Informação, regras e controle ficam com você. Sem mensalidade de plataforma pronta, sem encaixar num molde.',
+          'Informação, regras e controle ficam com você. A mensalidade é de manutenção do seu sistema — não o aluguel de um molde.',
         tag: 'Seus dados · Suas regras',
       },
     ],
@@ -243,7 +243,7 @@ export const ptBR: Messages = {
     ],
   },
   contact: {
-    kicker: 'Iniciar um projeto',
+    kicker: 'Fale conosco',
     headline: 'Tem uma ideia? Vamos construir.',
     intro:
       'Conte o que você quer resolver. A gente transforma em produto digital, e a mensagem vai direto pro WhatsApp.',

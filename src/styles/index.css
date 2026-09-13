@@ -67,7 +67,7 @@
 
 /*
  * No `scroll-behavior: smooth` here on purpose: it fights GSAP ScrollToPlugin,
- * which drives desktop anchor scrolling. Native CSS smooth scrolling
+ * which drives every programmatic scroll on this site. Native smooth scrolling
  * would make the plugin read back an unexpected position and self-cancel.
  */
 html {

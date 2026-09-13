@@ -1035,6 +1035,281 @@
     letter-spacing: -0.03em;
   }
 
+  .case-visual {
+    height: 346px;
+    min-height: 346px;
+    max-height: 346px;
+  }
+
+  .browser {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .browser-bar {
+    gap: 8px;
+    padding: 7px 9px;
+  }
+
+  .browser-page {
+    padding: 11px 12px 9px;
+  }
+
+  .study-hero {
+    padding: 9px 0 8px;
+  }
+
+  .study-aside {
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .study-cta {
+    margin-top: 9px;
+    font-size: 11px;
+  }
+
+  .study-beats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .study-beat {
+    gap: 3px;
+    padding: 7px 0 0;
+    border-bottom: 0;
+  }
+
+  .study-beat-head {
+    flex-direction: column;
+    gap: 1px;
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  .study-beat em {
+    padding-left: 0;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .case-model .case-plate {
+    padding: 14px 12px 10px;
+  }
+
+  .model-board {
+    min-height: 0;
+  }
+
+  .model-node {
+    gap: 4px;
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  .model-origin {
+    margin: 12px 0;
+    padding: 8px 14px;
+    font-size: 22px;
+  }
+
+  .case-flow .case-plate {
+    padding: 12px 10px 9px;
+  }
+
+  .case-flow .case-foot {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .flow-track li {
+    gap: 5px;
+  }
+
+  .flow-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 8px;
+  }
+
+  .flow-track li:nth-child(4) {
+    grid-row: 2;
+    grid-column: 3;
+  }
+
+  .flow-track li:nth-child(5) {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .flow-track li:nth-child(6) {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .flow-node {
+    width: 9px;
+    height: 9px;
+  }
+
+  .flow-copy {
+    gap: 1px;
+  }
+
+  .flow-copy b {
+    font-size: 11px;
+  }
+
+  .flow-copy strong {
+    font-size: 12px;
+    line-height: 1.05;
+  }
+
+  .flow-copy em {
+    overflow: visible;
+    font-size: 11px;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    text-overflow: clip;
+  }
+
+  .flow-log {
+    margin-top: 10px;
+  }
+
+  .flow-log li {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .flow-log time {
+    font-size: 11px;
+  }
+
+  .flow-log span {
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .eco-bar {
+    padding: 6px 10px;
+  }
+
+  .eco-mark {
+    font-size: 13px;
+  }
+
+  .eco-bag {
+    font-size: 11px;
+  }
+
+  .eco-pdp {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 8px;
+    padding: 7px 10px;
+  }
+
+  .eco-cloth {
+    width: 44px;
+    height: 48px;
+  }
+
+  .eco-shirt {
+    width: 24px;
+  }
+
+  .eco-pdp-copy {
+    gap: 2px;
+  }
+
+  .eco-room-id {
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .eco-room-id b {
+    font-size: 11px;
+  }
+
+  .eco-garment {
+    font-size: 18px;
+  }
+
+  .eco-buy {
+    gap: 4px;
+    font-size: 11px;
+  }
+
+  .eco-buy svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .eco-ops {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eco-slip,
+  .eco-shelf {
+    padding: 6px 8px;
+  }
+
+  .eco-slip {
+    border-right: 1px solid var(--hairline-mid);
+    border-bottom: 0;
+  }
+
+  .eco-lines,
+  .eco-bins,
+  .eco-notes {
+    margin-top: 4px;
+  }
+
+  .eco-lines li,
+  .eco-bins li {
+    gap: 5px;
+    padding: 3px 0;
+    font-size: 11px;
+  }
+
+  .eco-bins li {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+  }
+
+  .eco-shelf em {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .eco-thread {
+    gap: 2px;
+    padding: 5px 8px;
+  }
+
+  .eco-notes {
+    gap: 2px;
+  }
+
+  .eco-notes p {
+    gap: 4px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .eco-notes b {
+    min-width: 2.5rem;
+    margin-right: 0;
+    font-size: 11px;
+  }
+
+  .case-eco .case-foot {
+    padding: 5px 8px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
   .stage-guide {
     display: flex;
     justify-content: center;

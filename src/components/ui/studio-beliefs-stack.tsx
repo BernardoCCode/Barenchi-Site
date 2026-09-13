@@ -41,11 +41,12 @@ export function StudioBeliefsStack() {
   useEffect(() => {
     const update = () => {
       const narrow = window.innerWidth < 768
+      const availableStackWidth = Math.min(928, window.innerWidth - (narrow ? 40 : 64))
       setCompact(narrow)
       setCardWidth(
         narrow
           ? Math.max(236, Math.min(268, window.innerWidth - 110))
-          : Math.min(400, Math.max(280, window.innerWidth - 80)),
+          : Math.min(400, Math.max(280, Math.floor((availableStackWidth - 64) / 2.15))),
       )
     }
     update()

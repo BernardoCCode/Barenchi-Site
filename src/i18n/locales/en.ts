@@ -159,7 +159,7 @@ export const en: Messages = {
       {
         title: 'The system stays yours.',
         description:
-          'Your information, rules, and control stay with you. No rented platform fees, no forcing the business into a mold.',
+          'Your information, rules, and control stay with you. The monthly fee is for maintaining your system — not for renting a mold.',
         tag: 'Your data · Your rules',
       },
     ],
@@ -243,7 +243,7 @@ export const en: Messages = {
     ],
   },
   contact: {
-    kicker: 'Start a project',
+    kicker: 'Talk to us',
     headline: "Have an idea? Let's build it.",
     intro:
       'Tell us what you are trying to solve. We will turn it into a digital product, and the message goes straight to WhatsApp.',
