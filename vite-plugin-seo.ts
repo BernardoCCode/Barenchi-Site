@@ -139,6 +139,9 @@ const FAQS = [
 const COMPANY_DESCRIPTION =
   'Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship.'
 
+const STUDIO_DESCRIPTION =
+  'You already have a way of working. We build the software that can hold it.'
+
 function escapeAttr(value: string) {
   return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
 }
