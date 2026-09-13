@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { Check, Copy, Menu, X } from 'lucide-react'
+import { Check, Copy } from 'lucide-react'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useI18n, useNavLinks } from '@/i18n/I18nProvider'
@@ -265,6 +265,16 @@ function NavMail() {
   )
 }
 
+function MobileMenuGlyph({ open }: { open: boolean }) {
+  return (
+    <span className={`menu-glyph${open ? ' is-open' : ''}`} aria-hidden="true">
+      <span className="menu-glyph-line menu-glyph-line-top" />
+      <span className="menu-glyph-line menu-glyph-line-middle" />
+      <span className="menu-glyph-line menu-glyph-line-bottom" />
+    </span>
+  )
+}
+
 export function Navbar() {
   const { t } = useI18n()
   const navLinks = useNavLinks()
@@ -324,7 +334,7 @@ export function Navbar() {
               aria-label={open ? t.navUi.closeMenu : t.navUi.openMenu}
               onClick={() => setOpen((value) => !value)}
             >
-              {open ? <X size={18} strokeWidth={1.4} /> : <Menu size={18} strokeWidth={1.4} />}
+              <MobileMenuGlyph open={open} />
             </button>
           </div>
         </div>

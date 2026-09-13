@@ -348,7 +348,6 @@ img {
 }
 
 .nav-over-hero .menu-btn {
-  border-color: var(--line-strong);
   color: var(--ink);
 }
 
@@ -526,16 +525,99 @@ img {
 }
 
 .menu-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: var(--touch);
   height: var(--touch);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border: 0;
+  border-radius: 0;
   background: transparent;
   cursor: pointer;
   color: var(--ink);
+  transition: color 0.35s var(--ease);
+}
+
+.menu-btn:hover {
+  color: var(--brand);
+}
+
+.menu-btn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: 16px;
+  height: 1px;
+  background: var(--brand);
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.35s var(--ease);
+}
+
+.menu-btn:focus-visible {
+  outline: none;
+}
+
+.menu-btn:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.menu-glyph {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 16px;
+}
+
+.menu-glyph-line {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    top 0.45s var(--ease),
+    width 0.45s var(--ease),
+    transform 0.45s var(--ease),
+    opacity 0.2s ease;
+}
+
+.menu-glyph-line-top {
+  top: 1px;
+}
+
+.menu-glyph-line-middle {
+  top: 7px;
+  width: 13px;
+}
+
+.menu-glyph-line-bottom {
+  top: 13px;
+}
+
+.menu-btn:hover .menu-glyph-line-middle {
+  width: 20px;
+}
+
+.menu-glyph.is-open .menu-glyph-line-top,
+.menu-glyph.is-open .menu-glyph-line-bottom {
+  top: 7px;
+}
+
+.menu-glyph.is-open .menu-glyph-line-top {
+  transform: rotate(45deg);
+}
+
+.menu-glyph.is-open .menu-glyph-line-middle {
+  width: 0;
+  opacity: 0;
+}
+
+.menu-glyph.is-open .menu-glyph-line-bottom {
+  transform: rotate(-45deg);
 }
 
 .menu-backdrop {
