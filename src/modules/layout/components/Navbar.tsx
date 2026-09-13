@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom'
 import { useI18n, useNavLinks } from '@/i18n/I18nProvider'
 import { AppLink } from '@/shared/components/AppLink'
 import { Logo } from '@/shared/components/Logo'
-import { TalkLink } from '@/shared/components/TalkLink'
 import { COMPANY } from '@/shared/constants'
 import { useScrolled } from '@/shared/hooks'
 import { EASE } from '@/shared/motion'
@@ -378,7 +377,6 @@ export function Navbar() {
               </div>
               <div className="menu-panel-foot">
                 <NavMail />
-                <TalkLink />
               </div>
             </motion.nav>
           </>
