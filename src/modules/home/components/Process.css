@@ -1,0 +1,261 @@
+.process {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-section) 0;
+  background: var(--paper);
+  color: var(--ink);
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+
+.process-shell {
+  display: grid;
+  gap: 40px;
+}
+
+.process-head {
+  display: grid;
+  gap: 20px;
+}
+
+.process-kicker {
+  margin: 0 0 12px;
+  color: var(--brand);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.process-headline h2 {
+  margin: 0;
+  max-width: 12ch;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(36px, 10vw, 52px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+.process-headline h2 > span {
+  display: block;
+}
+
+.process-soft {
+  color: var(--brand);
+  font-style: italic;
+}
+
+.process-lead {
+  margin: 0;
+  max-width: 38ch;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.process-track {
+  position: relative;
+  padding-inline-start: 26px;
+}
+
+.process-rail {
+  display: none;
+}
+
+.process-rail-fill {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.process-grid {
+  display: grid;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.process-item {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding-block: 4px 20px;
+  padding-inline-start: 28px;
+  border-inline-start: 1px solid var(--hairline-mid);
+}
+
+.process-item:last-child {
+  border-inline-start-color: transparent;
+}
+
+.process-node {
+  position: absolute;
+  top: 4px;
+  inset-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 36px;
+  transform: translateX(-50%);
+}
+
+.process-node svg {
+  width: 16px;
+  height: 16px;
+  color: var(--brand);
+}
+
+.process-node span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--hairline-mid);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--brand);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.14em;
+  transition: border-color 0.35s var(--ease);
+}
+
+.process-item:hover .process-node span,
+.process-item:focus-within .process-node span {
+  border-color: var(--line-strong);
+}
+
+.process-item h3 {
+  margin: 0;
+  padding-top: 2px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(22px, 3vw, 26px);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.process-item p {
+  margin: 0;
+  max-width: 36ch;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  .process-headline h2 {
+    max-width: 22ch;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.02;
+  }
+}
+
+@media (min-width: 768px) {
+  .process {
+    padding: 88px 0 96px;
+  }
+
+  .process-shell {
+    gap: 52px;
+  }
+
+  .process-head {
+    grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 22rem);
+    column-gap: 64px;
+    align-items: end;
+  }
+
+  .process-headline h2 {
+    font-size: clamp(48px, 5.8vw, 88px);
+    max-width: 11ch;
+  }
+
+  .process-lead {
+    padding-bottom: 6px;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 40px;
+  }
+
+  .process-track {
+    padding-inline-start: 0;
+  }
+
+  .process-item {
+    padding-left: 0;
+    padding-block: 0;
+    border-left: none;
+    border-inline-start: none;
+  }
+
+  .process-node {
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    width: auto;
+    transform: none;
+    margin-bottom: 4px;
+  }
+
+  .process-node svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  .process-rail {
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--hairline-mid);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+    padding-top: 8px;
+  }
+
+  .process-item {
+    padding-top: 36px;
+  }
+
+  .process-node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateY(-50%);
+  }
+
+  .process-node span {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .process-head {
+    column-gap: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-rail-fill {
+    transform: none;
+  }
+}

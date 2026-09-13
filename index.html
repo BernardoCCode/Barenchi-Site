@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <script>
+      (function () {
+        try {
+          var nav = performance.getEntriesByType('navigation')[0]
+          if (!nav || nav.type !== 'reload') return
+          if (history.scrollRestoration) history.scrollRestoration = 'manual'
+          if (location.pathname + location.search + location.hash !== '/') {
+            history.replaceState(history.state, '', '/')
+          }
+          window.scrollTo(0, 0)
+        } catch (e) {}
+      })()
+    </script>
+    <title>Custom software for your business | Barenchi</title>
+    <meta
+      name="description"
+      content="Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship."
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="Barenchi" />
+    <meta name="theme-color" content="#EAF8FD" />
+    <link rel="canonical" href="https://barenchi.tech/" />
+    <link rel="alternate" hreflang="en" href="https://barenchi.tech/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://barenchi.tech/" />
+    <link rel="alternate" hreflang="x-default" href="https://barenchi.tech/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Barenchi" />
+    <meta property="og:title" content="Custom software for your business | Barenchi" />
+    <meta
+      property="og:description"
+      content="Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship."
+    />
+    <meta property="og:url" content="https://barenchi.tech/" />
+    <meta property="og:image" content="https://barenchi.tech/hero-poster.jpg" />
+    <meta property="og:image:alt" content="Custom software for your business | Barenchi" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Custom software for your business | Barenchi" />
+    <meta
+      name="twitter:description"
+      content="Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship."
+    />
+    <meta name="twitter:image" content="https://barenchi.tech/hero-poster.jpg" />
+    <meta property="article:published_time" content="2026-09-11T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-09-13T00:00:00Z" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=4" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=4" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preload" as="image" href="/hero-poster.jpg?v=clean" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap"
+      />
+    </noscript>
+
+    <script type="application/ld+json" id="barenchi-jsonld">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://barenchi.tech/#organization",
+            "name": "Barenchi",
+            "url": "https://barenchi.tech/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://barenchi.tech/barenchi-logo-lockup.png"
+            },
+            "image": "https://barenchi.tech/hero-poster.jpg",
+            "email": "barenchisoftware@gmail.com",
+            "telephone": "+55 21 98770-4552",
+            "sameAs": ["https://www.instagram.com/barenchi.tech"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "BR",
+              "addressRegion": "RJ"
+            }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://barenchi.tech/#service",
+            "name": "Barenchi",
+            "url": "https://barenchi.tech/",
+            "image": "https://barenchi.tech/hero-poster.jpg",
+            "email": "barenchisoftware@gmail.com",
+            "telephone": "+55 21 98770-4552",
+            "description": "Barenchi builds landing pages, custom systems and automation around the way you already work.",
+            "areaServed": [
+              { "@type": "Country", "name": "Brazil" },
+              { "@type": "Place", "name": "Worldwide" }
+            ],
+            "serviceType": [
+              "Landing pages",
+              "Custom software",
+              "Business systems",
+              "Ecommerce ecosystems",
+              "Automation"
+            ],
+            "parentOrganization": { "@id": "https://barenchi.tech/#organization" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://barenchi.tech/#website",
+            "name": "Barenchi",
+            "url": "https://barenchi.tech/",
+            "inLanguage": ["en", "pt-BR"],
+            "publisher": { "@id": "https://barenchi.tech/#organization" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://barenchi.tech/#webpage",
+            "url": "https://barenchi.tech/",
+            "name": "Custom software for your business | Barenchi",
+            "description": "Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship.",
+            "isPartOf": { "@id": "https://barenchi.tech/#website" },
+            "about": { "@id": "https://barenchi.tech/#organization" },
+            "author": { "@id": "https://barenchi.tech/#organization" },
+            "publisher": { "@id": "https://barenchi.tech/#organization" },
+            "datePublished": "2026-09-11",
+            "dateModified": "2026-09-13",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://barenchi.tech/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does Barenchi build?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Landing pages, custom systems, ecommerce ecosystems, integrations and automation, shaped to the way a business already works, not to a generic mold."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Who is Barenchi for?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Founders and operators who have outgrown off-the-shelf tools, or who need software that follows a real workflow instead of a template."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can the work follow our brand and process?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Design, architecture and implementation stay close to the operation. Roles, data and the way people actually work are part of the brief."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you connect to tools we already use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Integrations and automation are part of the practice. The tools you already pay for can sit in one flow instead of being retyped between them."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do we start?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Write for us with what you are trying to solve. We turn that into scope, design and a technical path, without asking you to buy a platform first."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!--
+      THESIS: A studio-white software-film hero carries the first viewport; serif slogan Custom / software / for your business. splits left and right. It refuses invented metrics and 3D totems.
+      OWN-WORLD: Hero film and page share studio floor #EAF8FD. Instrument Serif overlay, brown #6B4A35 only in joining words and the Talk to us lockup. No second accent.
+      STORY: Visitor sees software in motion, reads Software built around your business, explores three capability moments, and starts a conversation.
+      FIRST VIEWPORT: Studio-white software-film hero. Serif slogan Custom left / software right / for your business. underneath. Talk to us lockup low-right. No lead copy. No hotspots. No invented metrics.
+      FORM: User-pinned visual correction 2026-09-11. Seed: user-locked-barenchi-white-studio-2026-09-11.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+    -->
+    <noscript id="barenchi-crawler">
+      <article>
+        <h1>Custom software for your business.</h1>
+        <p>Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship.</p>
+        <h2>Landing pages</h2>
+        <p>We design and build landing pages that make your business easier to understand, trust and choose.</p>
+        <h2>Custom systems</h2>
+        <p>We build systems around your processes, rules and goals, instead of forcing your business into someone else's software.</p>
+        <h2>Automation</h2>
+        <p>We connect the repetitive parts of your operation so work moves forward without constant manual intervention.</p>
+        <h2>Ecosystems</h2>
+        <p>We assemble ecommerce ecosystems: store, stock, payments, CRM and channels, so the operation holds as one piece.</p>
+        <h2>The approach</h2>
+        <p>You already have a way of working. We build the software that can hold it.</p>
+        <h2>From conversation to a product in the world.</h2>
+        <p>Four phases: one continuous thread from the first call to a live product you never have to host yourself.</p>
+        <h2>Questions worth answering.</h2>
+        <h3>What does Barenchi build?</h3>
+        <p>Landing pages, custom systems, ecommerce ecosystems, integrations and automation, shaped to the way a business already works, not to a generic mold.</p>
+        <h3>Who is Barenchi for?</h3>
+        <p>Founders and operators who have outgrown off-the-shelf tools, or who need software that follows a real workflow instead of a template.</p>
+        <h3>Can the work follow our brand and process?</h3>
+        <p>Yes. Design, architecture and implementation stay close to the operation. Roles, data and the way people actually work are part of the brief.</p>
+        <h3>Do you connect to tools we already use?</h3>
+        <p>Yes. Integrations and automation are part of the practice. The tools you already pay for can sit in one flow instead of being retyped between them.</p>
+        <h3>How do we start?</h3>
+        <p>Write for us with what you are trying to solve. We turn that into scope, design and a technical path, without asking you to buy a platform first.</p>
+        <p>WhatsApp +55 21 98770-4552 · barenchisoftware@gmail.com · <a href="/llms.txt">llms.txt</a></p>
+      </article>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

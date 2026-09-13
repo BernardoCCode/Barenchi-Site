@@ -1,0 +1,29 @@
+.engine-layer,
+.engine-fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.engine-layer canvas {
+  display: block;
+}
+
+.engine-fallback {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.engine-fallback-body {
+  width: min(220px, 42vw);
+  aspect-ratio: 3 / 5;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1;
+  box-shadow: 0 28px 48px var(--hairline-mid);
+}

@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "skills": {
+    "perf-web-optimization": {
+      "name": "perf-web-optimization",
+      "source": "local",
+      "contentHash": "864bb35d6ec7e7755181886b57709b76d8b5da5181a6d8480cd412dd772f1ffb",
+      "installedAt": "2026-09-13T04:17:31.210Z",
+      "updatedAt": "2026-09-13T04:17:31.227Z",
+      "agents": [
+        "cursor",
+        "claude-code",
+        "windsurf"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "best-practices": {
+      "name": "best-practices",
+      "source": "local",
+      "contentHash": "e22b6d3e9c7d29cc5f92a89a1a393aa2686aa5c0cd70b7159a7fc9a2bc779461",
+      "installedAt": "2026-09-13T04:18:06.046Z",
+      "updatedAt": "2026-09-13T04:18:06.053Z",
+      "agents": [
+        "cursor",
+        "claude-code",
+        "windsurf"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "seo": {
+      "name": "seo",
+      "source": "local",
+      "contentHash": "fc9897a3923b5e23e00545ac67f4c8c2b6903113bd5f046cda259c98a0f3cd40",
+      "installedAt": "2026-09-13T04:18:22.280Z",
+      "updatedAt": "2026-09-13T04:18:22.291Z",
+      "agents": [
+        "cursor",
+        "claude-code",
+        "windsurf"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "tlc-generative-engine-optimization": {
+      "name": "tlc-generative-engine-optimization",
+      "source": "local",
+      "contentHash": "0ffb82a6d58cbb4f7f265a29601971bd302322ef89c4392f25278376200596df",
+      "installedAt": "2026-09-13T04:36:57.703Z",
+      "updatedAt": "2026-09-13T04:36:57.711Z",
+      "agents": [
+        "cursor",
+        "claude-code"
+      ],
+      "method": "copy",
+      "global": false
+    }
+  }
+}

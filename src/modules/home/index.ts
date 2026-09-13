@@ -1,0 +1,6 @@
+export { About } from './components/About'
+export { ContactSection } from './components/ContactSection'
+export { FinalCta } from './components/FinalCta'
+export { HomeLanding } from './components/HomeLanding'
+export { Process } from './components/Process'
+export { Studio } from './components/Studio'

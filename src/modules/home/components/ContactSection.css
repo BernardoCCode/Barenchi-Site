@@ -1,0 +1,453 @@
+.contact {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-section) 0;
+  background: var(--paper);
+  color: var(--ink);
+  scroll-margin-top: var(--nav-h);
+}
+
+.contact-page {
+  padding-top: 12px;
+}
+
+.contact-inner {
+  display: grid;
+  gap: 36px;
+  padding: 28px 0;
+  border-top: 1px solid var(--hairline-mid);
+  border-bottom: 1px solid var(--hairline-mid);
+}
+
+.contact-kicker {
+  margin: 0 0 10px;
+  color: var(--brand);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-copy h1,
+.contact-copy h2 {
+  margin: 0 0 0 -0.04em;
+  max-width: 16ch;
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 40px);
+  letter-spacing: 0;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.contact-copy > p {
+  margin: 16px 0 0;
+  max-width: 40ch;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.contact-ways {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-ways li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-way-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--brand);
+  background: color-mix(in srgb, var(--paper) 55%, #fff);
+}
+
+.contact-way-icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
+}
+
+.contact-way-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding-top: 10px;
+}
+
+.contact-ways a {
+  display: block;
+  min-height: var(--touch);
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.contact-way-number {
+  overflow-wrap: normal;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.contact-ways a:hover {
+  color: var(--brand);
+}
+
+.contact-ways span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.contact-form-frame {
+  width: 100%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form > * {
+  margin: 0;
+}
+
+.contact-submit-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-submit {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 12rem;
+  min-height: var(--touch);
+  padding-inline: 22px;
+}
+
+.contact-submit:disabled {
+  opacity: 0.92;
+  cursor: wait;
+}
+
+.contact-submit__label,
+.contact-submit__loading {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-submit__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid color-mix(in srgb, var(--paper) 35%, transparent);
+  border-top-color: var(--paper);
+  border-radius: 50%;
+  animation: contact-spin 0.7s linear infinite;
+}
+
+.contact-submit__sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    color-mix(in srgb, var(--paper) 28%, transparent) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  animation: contact-sheen 3.2s ease-in-out infinite;
+}
+
+.contact-note {
+  margin: 0;
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.animated-form-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.animated-form-frame__beams {
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.animated-form-frame__beam {
+  position: absolute;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+  filter: blur(0.4px);
+}
+
+.animated-form-frame__beam--top {
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+}
+
+.animated-form-frame__beam--right {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, var(--brand), transparent);
+}
+
+.animated-form-frame__beam--bottom {
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+}
+
+.animated-form-frame__beam--left {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, var(--brand), transparent);
+}
+
+.animated-form-frame__panel {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, #fff 88%, var(--paper)) 0%, color-mix(in srgb, var(--paper) 72%, #fff) 100%);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 80%, transparent),
+    0 18px 40px color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+.floating-field {
+  width: 100%;
+}
+
+.floating-field__shell {
+  position: relative;
+  padding-top: 16px;
+}
+
+.floating-field__icon {
+  position: absolute;
+  left: 12px;
+  top: calc(50% + 8px);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transform: translateY(-50%);
+  transition: color 0.25s var(--ease);
+}
+
+.floating-field--focused .floating-field__icon,
+.floating-field--raised .floating-field__icon {
+  color: var(--brand);
+}
+
+.floating-field--multiline .floating-field__icon {
+  top: 32px;
+  transform: none;
+}
+
+.floating-field__control {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding: 14px 12px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper) 40%, #fff);
+  color: var(--ink);
+  caret-color: var(--brand);
+  font-size: 16px;
+  line-height: 1.35;
+  touch-action: manipulation;
+  transition:
+    border-color 0.25s var(--ease),
+    background 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.floating-field__control--icon {
+  padding-left: 38px;
+}
+
+textarea.floating-field__control {
+  min-height: 132px;
+  resize: vertical;
+  padding-top: 18px;
+}
+
+.floating-field__control:focus-visible {
+  outline: none;
+  border-color: var(--brand);
+  background: #fff;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+.floating-field--invalid .floating-field__control {
+  border-color: var(--brand);
+}
+
+.floating-field__label {
+  position: absolute;
+  left: 12px;
+  top: 30px;
+  z-index: 2;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.floating-field__control--icon + .floating-field__label {
+  left: 38px;
+}
+
+.floating-field--focused .floating-field__label,
+.floating-field--raised .floating-field__label {
+  color: var(--brand);
+}
+
+.floating-field--invalid .floating-field__label {
+  color: var(--brand);
+}
+
+.floating-field__glow {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 10px;
+  bottom: 0;
+  height: 1px;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand) 55%, transparent), transparent);
+  transition: opacity 0.25s var(--ease);
+}
+
+.floating-field__glow.is-on {
+  opacity: 1;
+}
+
+.floating-field__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  min-height: 34px;
+  margin-top: 8px;
+}
+
+.floating-field__hint {
+  margin: 0;
+  flex: 1;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.floating-field--invalid .floating-field__hint {
+  color: var(--brand);
+}
+
+.floating-field__count {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+@keyframes contact-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes contact-sheen {
+  0%,
+  70%,
+  100% {
+    transform: translateX(-120%);
+  }
+
+  85% {
+    transform: translateX(120%);
+  }
+}
+
+@media (min-width: 768px) {
+  .contact {
+    padding: 64px 0 88px;
+  }
+
+  .contact-page {
+    padding-top: 16px;
+  }
+
+  .contact-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
+    align-items: start;
+    gap: 56px;
+    padding: 40px 0;
+  }
+
+  .animated-form-frame__panel {
+    padding: 28px;
+  }
+
+  .contact-submit {
+    width: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .contact-inner {
+    gap: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-submit__sheen,
+  .contact-submit__spinner {
+    animation: none;
+  }
+}

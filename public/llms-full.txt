@@ -1,0 +1,77 @@
+# Barenchi
+
+Barenchi builds landing pages, custom systems, ecommerce ecosystems and automation around the way a business already works. Based in Rio de Janeiro, Brazil. The client keeps the code, data and rules. Barenchi hosts and maintains the product.
+
+A Barenchi constrói landing pages, sistemas sob medida, ecossistemas de ecommerce e automação em torno de como o negócio já opera. Fica no Rio de Janeiro. O código, os dados e as regras ficam com o cliente. A Barenchi hospeda e mantém o produto.
+
+## What does Barenchi build? / O que a Barenchi constrói?
+
+Landing pages, custom systems, ecommerce ecosystems, integrations and automation, shaped to the way a business already works, not to a generic mold.
+
+Landing pages, sistemas sob medida, ecossistemas de ecommerce, integrações e automação, moldados ao jeito de operar de cada negócio, não a um pacote genérico.
+
+## Who is Barenchi for? / Para quem são esses serviços?
+
+Founders and operators who have outgrown off-the-shelf tools, or who need software that follows a real workflow instead of a template.
+
+Fundadores e operadores que já superaram ferramentas prontas, ou que precisam de software que siga um fluxo real, não um template.
+
+## Services / Serviços
+
+### Landing pages
+
+We design and build landing pages that make your business easier to understand, trust and choose. Positioning, design, development, performance, analytics.
+
+Criamos landing pages que deixam o negócio mais fácil de entender, confiar e escolher.
+
+### Custom systems / Sistemas sob medida
+
+We build systems around your processes, rules and goals, instead of forcing the business into someone else's software. Business logic, APIs, dashboards, integrations, data.
+
+Construímos sistemas em torno dos processos, regras e metas do negócio, sem encaixar a operação no software de outra pessoa.
+
+### Automation / Automação
+
+We connect the repetitive parts of the operation so work moves forward without constant manual intervention. Workflows, integrations, triggers, notifications, process automation.
+
+Conectamos as partes repetitivas da operação para o trabalho fluir sem intervenção manual o tempo todo.
+
+### Ecosystems / Ecossistemas
+
+We assemble ecommerce ecosystems: store, stock, payments, CRM and channels, so the operation holds as one piece.
+
+Montamos ecossistemas de ecommerce: loja, estoque, pagamentos, CRM e canais, para a operação funcionar como uma peça só.
+
+## How Barenchi works / Como a Barenchi trabalha
+
+You already have a way of working. Barenchi builds the software that can hold it. The system stays yours: no rented platform fees, no forcing the business into a mold. Essentials ship first; the rest comes when the team can absorb it.
+
+Você já tem um jeito de operar. A Barenchi constrói o software que aguenta isso. O sistema é do cliente. Primeiro o essencial, depois o resto.
+
+## Process / Processo
+
+1. Understand — start from the real problem: what is broken, who is waiting, and what outcome matters.
+2. Shape together — choose the path around what the business wants, not a generic product mold.
+3. Build — a working core first, then the parts the operation is ready to absorb.
+4. Launch and run — hosted and maintained by Barenchi. The client does not manage servers, updates, or uptime.
+
+1. Entender — o problema real, quem espera e qual resultado importa.
+2. Desenhar juntos — o caminho em torno do que o negócio quer.
+3. Construir — núcleo funcional primeiro, depois o que a operação absorve.
+4. Lançar e manter — hospedado e mantido pela Barenchi.
+
+## How to start / Como começar
+
+Write to Barenchi with what you are trying to solve. That becomes scope, design and a technical path, without asking you to buy a platform first.
+
+- WhatsApp: +55 21 98770-4552
+- Email: barenchisoftware@gmail.com
+- Instagram: https://www.instagram.com/barenchi.tech
+- Contact page: https://barenchi.tech/contato
+
+## Canonical pages
+
+- https://barenchi.tech/
+- https://barenchi.tech/servicos
+- https://barenchi.tech/sobre
+- https://barenchi.tech/contato

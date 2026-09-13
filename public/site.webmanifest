@@ -1,0 +1,23 @@
+{
+  "name": "Barenchi",
+  "short_name": "Barenchi",
+  "description": "Custom software, landing pages, systems and automation for businesses.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#EAF8FD",
+  "theme_color": "#EAF8FD",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ]
+}
