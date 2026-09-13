@@ -60,9 +60,9 @@ export function CardStack<T extends CardStackItem>({
   }, [len])
 
   const maxOffset = 1
-  const cardSpacing = Math.max(16, Math.round(cardWidth * (compact ? 0.22 : 0.64)))
-  const stepDeg = compact ? 4 : 9
-  const stageExtra = compact ? 36 : 100
+  const cardSpacing = Math.max(16, Math.round(cardWidth * (compact ? 0.42 : 0.64)))
+  const stepDeg = compact ? 6 : 9
+  const stageExtra = compact ? 20 : 100
 
   const prev = useCallback(() => {
     if (!len) return
@@ -92,7 +92,7 @@ export function CardStack<T extends CardStackItem>({
     >
       <div
         className="card-stack-stage"
-        style={{ height: cardHeight + stageExtra, perspective: compact ? '900px' : '1100px' }}
+        style={{ height: cardHeight + stageExtra, perspective: compact ? 'none' : '1100px' }}
         tabIndex={0}
         onKeyDown={(event) => {
           if (event.key === 'ArrowLeft') prev()
@@ -110,11 +110,11 @@ export function CardStack<T extends CardStackItem>({
               const isActive = offset === 0
               const rotateZ = offset * stepDeg
               const x = offset * cardSpacing
-              const y = Math.abs(offset) * (compact ? 14 : 34)
-              const z = isActive ? 120 : -Math.abs(offset) * 180
-              const scale = isActive ? 1 : 0.86
-              const lift = isActive ? -12 : 0
-              const rotateX = isActive ? 0 : 5
+              const y = compact ? 0 : Math.abs(offset) * 34
+              const z = compact ? 0 : isActive ? 120 : -Math.abs(offset) * 180
+              const scale = isActive ? 1 : compact ? 0.9 : 0.86
+              const lift = compact ? 0 : isActive ? -12 : 0
+              const rotateX = compact ? 0 : isActive ? 0 : 5
 
               const dragProps = isActive && !reduce
                 ? {
@@ -137,6 +137,8 @@ export function CardStack<T extends CardStackItem>({
                   key={item.id}
                   className={cn('card-stack-card', isActive && 'card-stack-card--active')}
                   style={{
+                    left: '50%',
+                    marginLeft: -cardWidth / 2,
                     width: cardWidth,
                     height: cardHeight,
                     zIndex: isActive ? 300 : 80 - Math.abs(offset),
@@ -148,7 +150,10 @@ export function CardStack<T extends CardStackItem>({
                   onClick={() => setActive(index)}
                   {...dragProps}
                 >
-                  <div className="card-stack-card-inner" style={{ transform: `translateZ(${z}px)` }}>
+                  <div
+                    className="card-stack-card-inner"
+                    style={compact ? undefined : { transform: `translateZ(${z}px)` }}
+                  >
                     {renderCard ? renderCard(item, { active: isActive }) : null}
                   </div>
                 </motion.div>

@@ -47,11 +47,15 @@ function reveal(elements: Element[], trigger: Element, opts: RevealOpts) {
 }
 
 function setupReveals(compact: boolean) {
-  const y = compact ? 14 : 22
-  const yTitle = compact ? 12 : 18
-  const yImage = compact ? 18 : 26
-  const duration = compact ? 0.5 : 0.7
-  const imageDuration = compact ? 0.52 : 0.75
+  const y = compact ? 10 : 22
+  const yTitle = compact ? 8 : 18
+  const yImage = compact ? 12 : 26
+  const duration = compact ? 0.32 : 0.7
+  const imageDuration = compact ? 0.34 : 0.75
+  // Mobile flick-scroll outruns a mid-viewport start; begin as the block
+  // approaches the screen so items are already visible when they arrive.
+  const intoView = compact ? 'top 96%' : 'top 72%'
+  const firstView = compact ? 'top 98%' : 'top 72%'
 
   const catalog = document.querySelector('.catalog')
   if (catalog) {
@@ -61,8 +65,7 @@ function setupReveals(compact: boolean) {
     const visual = catalog.querySelector('.stage-visual')
     const copy = catalog.querySelector('.stage-copy')
 
-    const intoView = 'top 72%'
-    if (head) reveal([head], head, { y: yTitle, duration, start: intoView })
+    if (head) reveal([head], head, { y: yTitle, duration, start: firstView })
     if (index) reveal([index], index, { y, duration, start: intoView })
     if (visual) {
       reveal([visual], visual, {
@@ -80,9 +83,9 @@ function setupReveals(compact: boolean) {
   if (studio) {
     const lead = studio.querySelector<HTMLElement>('.studio-lead')
     const beliefs = gsap.utils.toArray<HTMLElement>(studio.querySelectorAll('.studio-stack'))
-    if (lead) reveal([lead], lead, { y: yTitle, duration, start: 'top 72%' })
-    beliefs.forEach((item, i) => {
-      reveal([item], item, { y, duration, start: `top ${72 - Math.min(i, 2) * 4}%` })
+    if (lead) reveal([lead], lead, { y: yTitle, duration, start: firstView })
+    beliefs.forEach((item) => {
+      reveal([item], item, { y, duration, start: intoView })
     })
   }
 
@@ -91,7 +94,7 @@ function setupReveals(compact: boolean) {
     const head = process.querySelector<HTMLElement>('.process-head')
     const rail = process.querySelector<HTMLElement>('.process-rail-fill')
     const items = gsap.utils.toArray<HTMLElement>(process.querySelectorAll('.process-item'))
-    if (head) reveal([head], head, { y: yTitle, duration, start: 'top 72%' })
+    if (head) reveal([head], head, { y: yTitle, duration, start: firstView })
     if (rail) {
       gsap.fromTo(
         rail,
@@ -101,15 +104,15 @@ function setupReveals(compact: boolean) {
           ease: 'none',
           scrollTrigger: {
             trigger: process,
-            start: 'top 68%',
+            start: compact ? 'top 88%' : 'top 68%',
             end: 'bottom 50%',
-            scrub: 0.4,
+            scrub: compact ? true : 0.4,
           },
         },
       )
     }
-    items.forEach((item, i) => {
-      reveal([item], item, { y, duration, start: `top ${74 - Math.min(i, 3) * 3}%` })
+    items.forEach((item) => {
+      reveal([item], item, { y, duration, start: intoView })
     })
   }
 

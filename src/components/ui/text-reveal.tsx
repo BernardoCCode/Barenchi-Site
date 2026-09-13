@@ -2,9 +2,11 @@
 
 import { Fragment, useMemo, useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'motion/react'
+import { useMediaQuery } from '@/shared/hooks'
 
 const EASE = [0.23, 1, 0.32, 1] as const
 const DURATION = 0.6
+const MOBILE_DURATION = 0.32
 
 const HIDDEN = { opacity: 0, y: 10, filter: 'blur(8px)' } as const
 const SHOWN = { opacity: 1, y: 0, filter: 'blur(0px)' } as const
@@ -46,8 +48,14 @@ export function TextReveal({
   className = '',
 }: TextRevealProps) {
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once, amount })
+  const compact = useMediaQuery('(max-width: 899px)')
+  const inView = useInView(ref, {
+    once,
+    amount: compact ? 0.02 : amount,
+    margin: compact ? '0px 0px 28% 0px' : '0px',
+  })
   const reduced = useReducedMotion()
+  const playDuration = compact ? MOBILE_DURATION : DURATION
 
   const { groups, step, started } = useMemo(() => {
     const words = text.trim().length ? text.trim().split(/\s+/) : []
@@ -71,15 +79,15 @@ export function TextReveal({
     })
 
     const total = index
-    const span = Math.max(0, maxDuration - DURATION)
-    const stepValue = total > 1 ? Math.min(stagger, span / (total - 1)) : 0
+    const span = Math.max(0, (compact ? Math.min(maxDuration, 0.85) : maxDuration) - playDuration)
+    const stepValue = total > 1 ? Math.min(compact ? Math.min(stagger, 0.028) : stagger, span / (total - 1)) : 0
 
     return {
       groups: built,
       step: stepValue,
       started: play && (!startOnView || inView),
     }
-  }, [text, by, stagger, maxDuration, play, startOnView, inView])
+  }, [text, by, stagger, maxDuration, play, startOnView, inView, compact, playDuration])
 
   return (
     <span ref={ref} className={className}>
@@ -99,7 +107,7 @@ export function TextReveal({
                     reduced
                       ? { duration: 0 }
                       : {
-                          duration: DURATION,
+                          duration: playDuration,
                           ease: EASE,
                           delay: started ? unit.index * step : 0,
                         }

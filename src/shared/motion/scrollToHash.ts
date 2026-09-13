@@ -40,7 +40,10 @@ export function scrollToHash(hash: string, options?: { instant?: boolean }) {
   if (distance < 4) return
 
   const viewports = distance / Math.max(window.innerHeight, 1)
-  const duration = gsap.utils.clamp(0.95, 2.8, 0.78 * viewports)
+  const compact = window.matchMedia('(max-width: 899px)').matches
+  const duration = compact
+    ? gsap.utils.clamp(0.55, 1.45, 0.48 * viewports)
+    : gsap.utils.clamp(0.95, 2.8, 0.78 * viewports)
 
   gsap.to(window, {
     duration,

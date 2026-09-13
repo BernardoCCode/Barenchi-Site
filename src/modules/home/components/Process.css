@@ -150,9 +150,14 @@
 
 @media (max-width: 767px) {
   .process-headline h2 {
-    max-width: 22ch;
-    font-size: clamp(26px, 3vw, 40px);
-    line-height: 1.02;
+    max-width: none;
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+  }
+
+  .process-headline h2 > span:first-child {
+    white-space: nowrap;
   }
 }
 
