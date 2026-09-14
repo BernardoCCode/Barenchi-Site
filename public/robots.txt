@@ -1,41 +1,4 @@
-# https://barenchi.tech/robots.txt
-#
-# OAI-SearchBot indexes pages for ChatGPT Search citations.
-# GPTBot is OpenAI's training crawler (separate from search).
-# Bingbot feeds Bing Copilot and Bing AI answers.
-# Googlebot feeds Google Search and AI Overviews.
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
 User-agent: *
 Allow: /
-
-Disallow: /api/
-Disallow: /private/
 
 Sitemap: https://barenchi.tech/sitemap.xml

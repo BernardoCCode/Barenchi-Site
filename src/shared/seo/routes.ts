@@ -2,9 +2,9 @@ import type { SeoPageId } from './types'
 
 export const SEO_CANONICAL: Record<SeoPageId, string> = {
   home: '/',
-  about: '/sobre',
-  services: '/servicos',
-  contact: '/contato',
+  about: '/',
+  services: '/',
+  contact: '/',
   notfound: '/',
 }
 
@@ -27,4 +27,4 @@ export function canonicalPathFor(pathname: string) {
   return SEO_CANONICAL[seoPageIdFromPath(pathname)]
 }
 
-export const INDEXABLE_PATHS = ['/', '/sobre', '/servicos', '/contato'] as const
+export const INDEXABLE_PATHS = ['/'] as const

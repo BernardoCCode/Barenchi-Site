@@ -1,6 +1,5 @@
 import type { Locale } from '@/i18n/types'
 import { SITE, absoluteUrl } from '@/shared/constants/site'
-import { GEO_MODIFIED_TIME, GEO_PUBLISHED_TIME } from './freshness'
 import { buildJsonLd, type GeoServiceItem } from './jsonld'
 import { canonicalPathFor, seoPageIdFromPath } from './routes'
 import type { SeoCopy } from './types'
@@ -75,22 +74,10 @@ export function applyDocumentSeo(input: {
   upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, input.copy.title)
   upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, input.copy.description)
   upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, image)
-  upsertMeta(
-    'meta[property="article:published_time"]',
-    { property: 'article:published_time' },
-    GEO_PUBLISHED_TIME,
-  )
-  upsertMeta(
-    'meta[property="article:modified_time"]',
-    { property: 'article:modified_time' },
-    GEO_MODIFIED_TIME,
-  )
+  upsertMeta('meta[name="twitter:image:alt"]', { name: 'twitter:image:alt' }, input.copy.title)
 
   if (page !== 'notfound') {
     upsertLink('canonical', url)
-    upsertLink('alternate', url, { hreflang: 'en' })
-    upsertLink('alternate', url, { hreflang: 'pt-BR' })
-    upsertLink('alternate', url, { hreflang: 'x-default' })
   }
 
   const script =

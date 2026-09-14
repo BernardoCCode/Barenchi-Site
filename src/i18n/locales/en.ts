@@ -4,7 +4,7 @@ export const en: Messages = {
   meta: {
     title: 'Custom software for your business | Barenchi',
     description:
-      'Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship.',
+      'Barenchi builds landing pages, custom systems, ecommerce ecosystems and automation around the way your business already works. Start a project with us.',
   },
   company: {
     tagline: 'Software, design and technology for businesses that want to move forward.',

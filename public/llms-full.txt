@@ -67,11 +67,7 @@ Write to Barenchi with what you are trying to solve. That becomes scope, design 
 - WhatsApp: +55 21 98770-4552
 - Email: barenchisoftware@gmail.com
 - Instagram: https://www.instagram.com/barenchi.tech
-- Contact page: https://barenchi.tech/contato
 
-## Canonical pages
+## Canonical page
 
 - https://barenchi.tech/
-- https://barenchi.tech/servicos
-- https://barenchi.tech/sobre
-- https://barenchi.tech/contato

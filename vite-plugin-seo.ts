@@ -5,8 +5,6 @@ import type { Plugin } from 'vite'
 const ORIGIN = 'https://barenchi.tech'
 const PUBLISHED = '2026-09-11'
 const MODIFIED = '2026-09-13'
-const PUBLISHED_TIME = `${PUBLISHED}T00:00:00Z`
-const MODIFIED_TIME = `${MODIFIED}T00:00:00Z`
 
 type SeoPageId = 'home' | 'about' | 'services' | 'contact'
 
@@ -26,62 +24,8 @@ const PAGES: PrerenderPage[] = [
     canonical: '/',
     title: 'Custom software for your business | Barenchi',
     description:
-      'Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship.',
+      'Barenchi builds landing pages, custom systems, ecommerce ecosystems and automation around the way your business already works. Start a project with us.',
     crumb: 'Home',
-  },
-  {
-    path: 'sobre',
-    page: 'about',
-    canonical: '/sobre',
-    title: 'Software built around how you already work | Barenchi',
-    description:
-      'Barenchi hosts and maintains software built around your workflow. The code, data and rules stay yours — from the first call through every month after launch.',
-    crumb: 'About',
-  },
-  {
-    path: 'about',
-    page: 'about',
-    canonical: '/sobre',
-    title: 'Software built around how you already work | Barenchi',
-    description:
-      'Barenchi hosts and maintains software built around your workflow. The code, data and rules stay yours — from the first call through every month after launch.',
-    crumb: 'About',
-  },
-  {
-    path: 'servicos',
-    page: 'services',
-    canonical: '/servicos',
-    title: 'Landing pages, systems, ecosystems and automation | Barenchi',
-    description:
-      'High-performance landing pages, custom systems, ecommerce ecosystems and automation, shaped to the way your team already works. See what Barenchi ships.',
-    crumb: 'Services',
-  },
-  {
-    path: 'services',
-    page: 'services',
-    canonical: '/servicos',
-    title: 'Landing pages, systems, ecosystems and automation | Barenchi',
-    description:
-      'High-performance landing pages, custom systems, ecommerce ecosystems and automation, shaped to the way your team already works. See what Barenchi ships.',
-    crumb: 'Services',
-  },
-  {
-    path: 'contato',
-    page: 'contact',
-    canonical: '/contato',
-    title: "Have an idea? Let's build it. | Barenchi",
-    description:
-      'Tell Barenchi what you want to build. We turn the brief into a digital product and open WhatsApp with your message ready to send. Write today.',
-    crumb: 'Contact',
-  },
-  {
-    path: 'contact',
-    page: 'contact',
-    canonical: '/contato',
-    title: "Have an idea? Let's build it. | Barenchi",
-    description:
-      'Tell Barenchi what you want to build. We turn the brief into a digital product and open WhatsApp with your message ready to send. Write today.',
-    crumb: 'Contact',
   },
 ]
 
@@ -137,7 +81,7 @@ const FAQS = [
 ]
 
 const COMPANY_DESCRIPTION =
-  'Barenchi builds landing pages, custom systems and automation around the way you already work. Tell us what you want to ship.'
+  'Barenchi builds landing pages, custom systems, ecommerce ecosystems and automation around the way your business already works.'
 
 const STUDIO_DESCRIPTION =
   'You already have a way of working. We build the software that can hold it.'
@@ -241,7 +185,7 @@ function buildJsonLd(page: PrerenderPage) {
   if (page.page === 'home' || page.page === 'services') {
     graph.push({
       '@type': 'OfferCatalog',
-      '@id': `${ORIGIN}/servicos#catalog`,
+      '@id': `${ORIGIN}/#catalog`,
       name: 'Barenchi',
       itemListElement: SERVICES.map((item, index) => ({
         '@type': 'Offer',
@@ -315,17 +259,13 @@ function applyPageMeta(html: string, page: PrerenderPage) {
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/, `$1${description}$2`)
     .replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<link\s+rel="alternate"\s+hreflang="en"\s+href=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<link\s+rel="alternate"\s+hreflang="pt-BR"\s+href=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<link\s+rel="alternate"\s+hreflang="x-default"\s+href=")[^"]*(")/, `$1${url}$2`)
     .replace(/(<meta\s+property="og:title"\s+content=")[^"]*(")/, `$1${title}$2`)
     .replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/, `$1${description}$2`)
     .replace(/(<meta\s+property="og:url"\s+content=")[^"]*(")/, `$1${url}$2`)
     .replace(/(<meta\s+property="og:image:alt"\s+content=")[^"]*(")/, `$1${title}$2`)
     .replace(/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/, `$1${title}$2`)
     .replace(/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/, `$1${description}$2`)
-    .replace(/(<meta\s+property="article:published_time"\s+content=")[^"]*(")/, `$1${PUBLISHED_TIME}$2`)
-    .replace(/(<meta\s+property="article:modified_time"\s+content=")[^"]*(")/, `$1${MODIFIED_TIME}$2`)
+    .replace(/(<meta\s+name="twitter:image:alt"\s+content=")[^"]*(")/, `$1${title}$2`)
     .replace(
       /<script type="application\/ld\+json" id="barenchi-jsonld">[\s\S]*?<\/script>/,
       `<script type="application/ld+json" id="barenchi-jsonld">${jsonLd}</script>`,

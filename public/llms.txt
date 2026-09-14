@@ -4,12 +4,9 @@
 
 > In Rio de Janeiro, Barenchi builds landing pages, custom systems, ecommerce ecosystems and automation around how a business already works. The client keeps the code, data and rules; Barenchi hosts and maintains the product.
 
-## Páginas principais / Key pages
+## Página principal / Key page
 
 - [Início](https://barenchi.tech/): O que a Barenchi constrói, para quem, a abordagem, o processo em quatro fases e as perguntas frequentes.
-- [Serviços](https://barenchi.tech/servicos): Landing pages, sistemas sob medida, automação e ecossistemas de ecommerce — o que cada um resolve.
-- [Sobre](https://barenchi.tech/sobre): Como a Barenchi trabalha: hospedado e mantido, sistema do cliente, ferramentas conectadas, o mesmo time da primeira conversa ao pós-lançamento.
-- [Contato](https://barenchi.tech/contato): Como começar um projeto por WhatsApp ou e-mail.
 
 ## Arquivos técnicos / Technical files
 
